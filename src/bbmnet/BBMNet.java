@@ -24,7 +24,7 @@ public class BBMNet {
     public static void main(String[] args) {
         BBMNatFactory factory
                 = BBMNatFactory
-                .createBBMNatFactory(new SOAPHandlerImp("cesarprg", "Licita18"));        
+                .createBBMNatFactory(new SOAPHandlerImp("<USUARIO>", "<SENHA>"));        
         System.out.println(factory.consultarUnidadesMedida());
 
     }
