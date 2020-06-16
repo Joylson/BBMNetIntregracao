@@ -40,11 +40,11 @@ public interface IWCFIntegracao {
 
     /**
      * 
-     * @param protocoloProcessamento
      * @param numeroSequencia
-     * @param isEdital
      * @param anexo
+     * @param isEdital
      * @param nomeArquivo
+     * @param protocoloProcessamento
      * @param descricao
      */
     @WebMethod(operationName = "EnviarAnexo", action = "http://tempuri.org/IWCFIntegracao/EnviarAnexo")
@@ -66,13 +66,13 @@ public interface IWCFIntegracao {
 
     /**
      * 
-     * @param protocoloProcessamento
-     * @param numeroLote
-     * @param codigoProdutoBBM
-     * @param numeroSequencia
      * @param fotoProcessamento
-     * @param codigoProdutoOrgao
+     * @param numeroLote
+     * @param numeroSequencia
+     * @param codigoProdutoBBM
      * @param nomeArquivo
+     * @param codigoProdutoOrgao
+     * @param protocoloProcessamento
      * @param numeroItem
      */
     @WebMethod(operationName = "EnviarFoto", action = "http://tempuri.org/IWCFIntegracao/EnviarFoto")
@@ -151,12 +151,12 @@ public interface IWCFIntegracao {
 
     /**
      * 
-     * @param inicio
-     * @param produtosBBM
-     * @param quantidadeLinhas
-     * @param expressaoOrdenamento
-     * @param produtosOrgao
      * @param pesquisa
+     * @param produtosBBM
+     * @param inicio
+     * @param expressaoOrdenamento
+     * @param quantidadeLinhas
+     * @param produtosOrgao
      * @return
      *     returns java.lang.String
      */

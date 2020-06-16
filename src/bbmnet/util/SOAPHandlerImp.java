@@ -26,15 +26,14 @@ import javax.xml.ws.handler.soap.SOAPMessageContext;
  * @author jtmir
  */
 public class SOAPHandlerImp implements SOAPHandler<SOAPMessageContext> {
-    
+
     private final String user;
     private final String password;
 
     public SOAPHandlerImp(String user, String password) {
         this.user = user;
         this.password = password;
-    }    
-    
+    }
 
     @Override
     public Set<QName> getHeaders() {
@@ -50,7 +49,7 @@ public class SOAPHandlerImp implements SOAPHandler<SOAPMessageContext> {
             if (envelope.getHeader() == null) {
                 header = envelope.addHeader();
             }else{
-                header = envelope.getHeader();                
+                header = envelope.getHeader();
             }
             SOAPElement webUser = header.addChildElement(new QName("ns", "web-user", "ns1"));
             webUser.addTextNode(this.user);
@@ -64,6 +63,15 @@ public class SOAPHandlerImp implements SOAPHandler<SOAPMessageContext> {
 
     @Override
     public boolean handleFault(SOAPMessageContext context) {
+        SOAPMessage msg = context.getMessage();
+        try {
+            ByteArrayOutputStream out = new ByteArrayOutputStream();
+            msg.writeTo(out);
+            String strMsg = new String(out.toByteArray());
+            System.out.println(strMsg);
+        } catch (SOAPException | IOException ex) {
+            Logger.getLogger(SOAPHandlerImp.class.getName()).log(Level.SEVERE, null, ex);
+        }
         return false;
     }
 
